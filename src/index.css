@@ -89,13 +89,14 @@ body{
   .alkia-font{
     font-family: alkia;
   }
-  .test{
-    @apply border-solid border-2 border-black;
-  }
+ 
   .align-element{
     @apply max-w-6xl mx-auto px-8;
   }
   .section{
-    @apply test min-h-[100vh] align-element px-0 py-12;
+    @apply test min-h-[100vh] align-element px-0 py-12 border-none;
+  }
+  .test{
+    @apply border-solid border-2 border-black;
   }
 }
