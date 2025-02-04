@@ -16,5 +16,5 @@ export type NewsResponse = {
     count: number;
     next: string;
     previous:string;
-    result : News[];
+    results : News[];
 }
