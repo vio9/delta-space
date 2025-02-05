@@ -10,8 +10,8 @@ type FormInputProps = {
 }
 const FormInput = ({label, name, type, defaultValue, placeholder}: FormInputProps) => {
   return (
-    <div>
-        <Label className="" htmlFor={name}>{label || name}</Label>
+    <div className="flex flex-col gap-1">
+        <Label className="capitalize text-xl" htmlFor={name}>{label || name}</Label>
         <Input 
             id={name} 
             name={name} 

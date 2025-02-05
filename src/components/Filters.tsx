@@ -4,9 +4,9 @@ import { Button } from "./ui/button"
 import FormInput from "./FormInput"
 
 const Filters = ({term, mode}: {term: string | undefined; mode :string }): ReactNode => {
-  console.log(mode)
+  console.log("mode=",mode)
   return (
-    <Form>
+    <Form className="my-6 py-2 flex flex-col gap">
         <FormInput 
           type="search" 
           label="Search for"
@@ -14,7 +14,7 @@ const Filters = ({term, mode}: {term: string | undefined; mode :string }): React
           defaultValue={term}
           placeholder="'m45' 'neutron star' 'starship'"
         />
-        <div>
+        <div className="self-end flex gap-2">
             <Button type="submit"  size="lg">Search</Button>
             <Button type="button" variant="outline" size="lg">
               <Link to="/news">Reset</Link></Button>

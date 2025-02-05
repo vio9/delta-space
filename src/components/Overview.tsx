@@ -1,8 +1,8 @@
-import { NewsResponse } from "@/utils/types"
+import { NewsResponseWithParams } from "@/utils/types"
 import { ReactNode } from "react"
 
-const Overview = ({objects}: {objects: NewsResponse}) :ReactNode => {
-    const number:number = objects.count;
+const Overview = ({objects}: {objects: NewsResponseWithParams}) :ReactNode => {
+    const number:number = objects.response.count;
   return (
     <div className="my-6 text-xl">{number} matches</div>
   )

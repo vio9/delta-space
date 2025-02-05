@@ -18,3 +18,10 @@ export type NewsResponse = {
     previous:string;
     results : News[];
 }
+
+export type FiltersParams = {
+    term? : string;
+}
+
+// super type formé à partir de newsresponse auquel on ajoute les params
+export type NewsResponseWithParams = { response : NewsResponse, params : FiltersParams}
