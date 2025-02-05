@@ -1,3 +1,4 @@
+import { CardsGrid, Overview, Title } from "@/components";
 import { datastroCustomFetch } from "@/utils/customFetch"
 import { HubbleImagesResponse } from "@/utils/types";
 import { LoaderFunction, useLoaderData } from "react-router-dom";
@@ -23,7 +24,14 @@ const Hubble = () => {
   const data = useLoaderData() as HubbleImagesResponse;
   console.log(data)
   return (
-    <div>Hubble</div>
+   <section className="section">
+    <Title text="Hubble telescope photos"/>
+    <Overview objects={data}/>
+    <CardsGrid objects={data} mode="hubble-page">
+
+    </CardsGrid>
+
+   </section>
   )
 }
 
