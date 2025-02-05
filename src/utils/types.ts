@@ -28,7 +28,7 @@ export type NewsResponseWithParams = { response : NewsResponse, params : Filters
 
 export type HubbleImage = {
     photo_id: number;
-    photo_title:string;
+    photo_title: string;
     photo_description : string;
     photo_url_m:{
         thumbnail: boolean;
@@ -37,9 +37,9 @@ export type HubbleImage = {
         width: number;
         mimetype: string;
         id: string;
-        last_synchronized : string;
+        last_synchronized: string;
         height: number;
-        url :string;
+        url: string;
     };
     photo_date_taken: string;
     photo_height: number;
