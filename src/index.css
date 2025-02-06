@@ -99,4 +99,13 @@ body{
   .test{
     @apply border-solid border-2 border-black;
   }
+
+  .slider-card{
+    transition : all 0.2s ease-out;
+  }
+
+  .slider-card:hover{
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.75);
+  }
 }
