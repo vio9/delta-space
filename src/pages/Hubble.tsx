@@ -25,11 +25,11 @@ export const hubblePageLoader : LoaderFunction = async({ request }): Promise<Hub
 const Hubble = () => {
   const data = useLoaderData() as HubbleImagesResponseWithParams;
   const { response, params } = data;
-  console.log(data);
+
   return (
    <section className="section">
     <Title text="Hubble telescope photos"/>
-    <Filters term={params.term} mode="news" key={params.term}/>
+    <Filters term={params.term} mode="hubble" key={params.term}/>
     <Overview objects={response}/>
     <CardsGrid objects={response} mode="hubble-page">
 

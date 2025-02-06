@@ -4,7 +4,7 @@ import { Button } from "./ui/button"
 import FormInput from "./FormInput"
 
 const Filters = ({term, mode}: {term: string | undefined; mode :string }): ReactNode => {
-  console.log("mode=",mode)
+
   return (
     <Form className="my-6 py-2 flex flex-col gap">
         <FormInput 
@@ -17,7 +17,7 @@ const Filters = ({term, mode}: {term: string | undefined; mode :string }): React
         <div className="self-end flex gap-2">
             <Button type="submit"  size="lg">Search</Button>
             <Button type="button" variant="outline" size="lg">
-              <Link to="/news">Reset</Link></Button>
+              <Link to={ mode === "news"? "/news" : "/hubble" }> Reset</Link></Button>
         </div>
 
     </Form>
