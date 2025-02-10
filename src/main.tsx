@@ -5,6 +5,7 @@ import {HomeLayout, Landing, Nasa, News, Webb, Apod, Hubble} from "./pages"
 import { newsPageLoader } from './pages/News'
 import { ErrorElement } from './components'
 import { hubblePageLoader } from './pages/Hubble'
+import { apodPageLoader } from './pages/Apod'
 
 const router = createBrowserRouter([
   {   path:'/', 
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
         {path:"news", element:<News />, loader: newsPageLoader, errorElement:<ErrorElement/> }, // on passe par le loader av le comp => succès => comp
         {path:"webb", element:<Webb />},
         {path:"nasa", element:<Nasa />},
-        {path:"apod", element:<Apod />},
+        {path:"apod", element:<Apod />, loader: apodPageLoader, errorElement:<ErrorElement/>},
         {path:"hubble", element:<Hubble/>, loader: hubblePageLoader, errorElement:<ErrorElement/>},
   ]}
 ])
