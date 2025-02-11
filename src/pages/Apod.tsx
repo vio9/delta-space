@@ -19,29 +19,38 @@ export const apodPageLoader: LoaderFunction = async () : Promise< ApodType | nul
 
 const Apod = () => {
  const defaultApod =  useLoaderData() as ApodType;
- const [data, setData] = useState<ApodType>(defaultApod); // obj apod
- const [day, setDay] = useState<number>(0); // jour + action en av ou arr
+ const [data, setData] = useState<ApodType>(defaultApod); 
+ const [day, setDay] = useState<number>(0); 
+ const [isLoading, setIsLoading] = useState<boolean>(false); 
 
-
- const fetchApod = async (day:number):Promise<ApodType | null> => {
-  try {
-      const params = {date: numberToDate(day)}; 
-      const response = await nasaCustomFetch.get<ApodType>("", {params});
-      return response.data
-  } catch (error) {
-    console.log(error);
-    return null
-    
-  }
+ const fetchApod = async (day:number):Promise<void | null> => {
+    setIsLoading(true);
+    try {
+        const params = {date: numberToDate(day)}; 
+        const response = await nasaCustomFetch.get<ApodType>("", {params : params});
+        setData(response.data);
+        setIsLoading(false);
+    } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+        return null;
+    }
  }
 
  useEffect(() => {
   fetchApod(day)
- }, [day])
+ }, [day]);
+
   return (
     <section className="section">
       <Title text="picture of the day"/>
-        <ApodPlayer apod={defaultApod}/>
+        <ApodPlayer 
+          apod={data} 
+          day={day} 
+          setDay={setDay}
+          isLoading={isLoading}
+
+        />
     </section>
   )
 }
