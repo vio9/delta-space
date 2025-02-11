@@ -110,3 +110,8 @@ export type WebbImagesResponse = {
         body: WebbImage[];
         error: string;
 }       
+
+export type WebbNewsAndImagery = {
+    news: News[] | null;
+    imagery: WebbImage[] | null;
+}
