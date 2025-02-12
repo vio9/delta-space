@@ -1,5 +1,8 @@
+import { CardsGrid, Title, WebbTelescopeSummary } from "@/components";
+import RelatedNews from "@/components/RelatedNews";
 import { snapiCustomFetch, webbCustomFetch } from "@/utils/customFetch"
 import { News, NewsResponse, WebbImage, WebbImagesResponse, WebbNewsAndImagery } from "@/utils/types";
+import { LoaderFunction, useLoaderData } from "react-router-dom";
 
 const newsParams = {
   news_site_exclude : "SpacePolicyOnline.com", 
@@ -27,6 +30,7 @@ try {
 export const imageryFetch = async ():Promise<WebbImage[] | null> => {
   try {
     const response = await webbCustomFetch.get<WebbImagesResponse>("", { params: imagesParams });
+    console.log("imagery:",response.data.body);
     return response.data.body;
   } catch (error) {
     console.log(error);
@@ -34,7 +38,8 @@ export const imageryFetch = async ():Promise<WebbImage[] | null> => {
   }
   }
 
-export const webbpageLoader = async (): Promise<WebbNewsAndImagery | null> => {
+ // double loader résolu avec promise all 
+export const webbpageLoader:LoaderFunction = async (): Promise<WebbNewsAndImagery | null> => {
 try {
   const [news, imagery] = await Promise.all([newsFetch(), imageryFetch()]);
   return {news, imagery}
@@ -46,8 +51,17 @@ try {
 
 
 const Webb = () => {
-  return (
-    <div>Webb</div>
+ const {news, imagery} =  useLoaderData() as WebbNewsAndImagery
+ 
+ return (
+    <section className="section">
+      <Title text="James Webb space telescope"/>
+      { news && <RelatedNews news={news} />}
+      <Title text="Videos in brief"/>
+      <WebbTelescopeSummary />
+      <Title text="Recent images"/>
+      { imagery && <CardsGrid objects={imagery} mode={imagery} />}
+    </section>
   )
 }
 

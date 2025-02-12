@@ -17,7 +17,7 @@ const NewsPageCard = ({news}: {news:News}) => {
             <p className="flex items-center">
                 <span>{news_site}</span>
                 <span>|</span>
-                <span className="flex gap-x-2">Read from source</span>
+                <span className="flex gap-x-2 p-1">Read from source</span>
                 <Link to={url} target="_blank">
                     <CircleArrowRight
                         color="var(--clr-violet)"
