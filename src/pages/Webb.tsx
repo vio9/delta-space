@@ -3,6 +3,7 @@ import RelatedNews from "@/components/RelatedNews";
 import { snapiCustomFetch, webbCustomFetch } from "@/utils/customFetch"
 import { News, NewsResponse, WebbImage, WebbImagesResponse, WebbNewsAndImagery } from "@/utils/types";
 import { LoaderFunction, useLoaderData } from "react-router-dom";
+import imgDefaultWebb from "../assets/images/pexels-miriamespacio.jpg";
 
 const newsParams = {
   news_site_exclude : "SpacePolicyOnline.com", 
@@ -16,10 +17,22 @@ const imagesParams = {
   perPage:4,
 }
 
+const IsValidImageUrl = (url:string):boolean => {
+  const img = new Image();
+  img.src = url;
+  return img.complete && img.naturalWidth !== 0;
+}
+
 export const newsFetch = async (): Promise<News[] | null> => {
 try {
   const response = await snapiCustomFetch.get<NewsResponse>("", { params:newsParams });
+  const results = response.data.results.map((newsItem) => {
+    if(!newsItem.image_url || !IsValidImageUrl(newsItem.image_url)){
+      newsItem.image_url = imgDefaultWebb;
+    }
+  })
   return response.data.results;
+
 } catch (error) {
   console.log(error);
   return null;
@@ -60,7 +73,7 @@ const Webb = () => {
       <Title text="Videos in brief"/>
       <WebbTelescopeSummary />
       <Title text="Recent images"/>
-      { imagery && <CardsGrid objects={imagery} mode={imagery} />}
+      { imagery && <CardsGrid objects={imagery} mode="imagery" />}
     </section>
   )
 }

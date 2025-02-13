@@ -36,7 +36,7 @@ const { response, params } = data;
        <Title text="All news"/> 
        <Filters term={params.term} mode="news" key={params.term}/>
        <Overview objects={data}/>
-       <CardsGrid objects={response} mode="news-page" />
+       <CardsGrid objects={response.results} mode="news-page" />
     </section>
    
   )
