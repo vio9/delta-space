@@ -19,7 +19,6 @@ const Filters = ({term, mode}: {term: string | undefined; mode :string }): React
             <Button type="button" variant="outline" size="lg">
               <Link to={ mode === "news"? "/news" : "/hubble" }> Reset</Link></Button>
         </div>
-
     </Form>
   )
 }

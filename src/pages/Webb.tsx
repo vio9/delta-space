@@ -26,7 +26,7 @@ const IsValidImageUrl = (url:string):boolean => {
 export const newsFetch = async (): Promise<News[] | null> => {
 try {
   const response = await snapiCustomFetch.get<NewsResponse>("", { params:newsParams });
-  const results = response.data.results.map((newsItem) => {
+   response.data.results.map((newsItem) => {
     if(!newsItem.image_url || !IsValidImageUrl(newsItem.image_url)){
       newsItem.image_url = imgDefaultWebb;
     }
