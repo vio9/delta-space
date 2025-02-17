@@ -15,7 +15,7 @@ const Cardsgrid = ({objects, mode}: { objects : News[] | HubbleImage[] | WebbIma
             ))}
         </div>
     } else if(mode==="rover"){
-        return <div>
+        return <div className="mb-16 grid gap-2 auto-rows-fr grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {(objects as RoversNasaImage[]).map((item, index) => (
             <RoverCard key={index} image={item}/>
           ))}
