@@ -30,6 +30,7 @@ export const roverNasaCustomFetch = axios.create({
         page: 1,
         sol:1000,
         api_key: import.meta.env.VITE_API_KEY_NASA,
+        earth_date: "2024-6-3"
     },
 });
 

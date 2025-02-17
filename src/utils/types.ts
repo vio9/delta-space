@@ -117,7 +117,6 @@ export type WebbNewsAndImagery = {
 }
 
 export type RoversNasaImage = {
-    photos: {
         id: number;
         sol: number;
         camera: {
@@ -140,5 +139,3 @@ export type RoversNasaImage = {
   
         }
     }
-   
-}

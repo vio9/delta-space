@@ -1,10 +1,11 @@
-import {HubbleImage, News, WebbImage } from "@/utils/types"
+import {HubbleImage, News, RoversNasaImage, WebbImage } from "@/utils/types"
 import { ReactNode } from "react";
 import NewsPageCard from "./NewsPageCard";
 import HubbleCard from "./HubbleCard";
 import ImageCard from "./ImageCard";
+import RoverCard from "./RoverCard";
 
-const Cardsgrid = ({objects, mode}: { objects : News[] | HubbleImage[] | WebbImage[]; 
+const Cardsgrid = ({objects, mode}: { objects : News[] | HubbleImage[] | WebbImage[] | (RoversNasaImage | null)[] ; 
     mode: string}): ReactNode => {
 
     if(mode ==="hubble-page"){
@@ -13,6 +14,13 @@ const Cardsgrid = ({objects, mode}: { objects : News[] | HubbleImage[] | WebbIma
                 <HubbleCard image={item} key={index}/>
             ))}
         </div>
+    } else if(mode==="rover"){
+        return <div>
+          {(objects as RoversNasaImage[]).map((item, index) => (
+            <RoverCard key={index} image={item}/>
+          ))}
+        </div>
+
     } else if(mode==="imagery"){
         return <div className="grid gap-2 auto-rows-fr grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {(objects as WebbImage[]).map((item, index) => <ImageCard image={item} key={index}/>)}

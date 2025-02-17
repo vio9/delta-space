@@ -1,26 +1,33 @@
 
+import { CardsGrid, Title } from "@/components";
 import { roverNasaCustomFetch } from "@/utils/customFetch";
 import { RoversNasaImage } from "@/utils/types"
-import { LoaderFunction } from "react-router-dom"
+import { LoaderFunction, useLoaderData } from "react-router-dom"
 
 
-export const nasaRoverFetch = async ():Promise <RoversNasaImage[] | null> => {
+export const nasaRoverPageLoader: LoaderFunction = async (): Promise<RoversNasaImage[] | null> => {
   try {
-    const response = await roverNasaCustomFetch.get<RoversNasaImage>("",);
-    console.log("response",response.data.photos)
+    const response = await roverNasaCustomFetch.get<{ photos: RoversNasaImage[] }>("");
+    console.log(response.data.photos);
     return response.data.photos;
   } catch (error) {
-    console.log(error)
-    return null
+    console.log(error);
+    return null;
   }
-} 
+};
 
-nasaRoverFetch()
 
 const Nasa = () => {
+const roversData = useLoaderData() as RoversNasaImage[];
+
 
   return (
-    <div>Nasa</div>
+    <section className="section">
+      <Title text="Nasa Curiosity rover"/>
+      {
+        roversData && <CardsGrid mode="rover" objects={roversData}/>
+      }
+    </section>
   )
 }
 
