@@ -4,7 +4,7 @@ const snapiAPI = "https://api.spaceflightnewsapi.net/v4/articles/";
 const datastroAPI = "https://www.datastro.eu/api/explore/v2.1/catalog/datasets/nasahubble/records";
 const nasaAPI = "https://api.nasa.gov/planetary/apod";
 const webbAPI = "https://api.jwstapi.com/all/type/jpg";
-const roverNasaAPI = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos/";
+const roverNasaAPI = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/latest_photos";
 
 export const snapiCustomFetch = axios.create({
     baseURL: snapiAPI,
@@ -27,10 +27,11 @@ export const webbCustomFetch = axios.create({
 export const roverNasaCustomFetch = axios.create({
     baseURL: roverNasaAPI,
     params: { 
-        page: 1,
-        sol:1000,
+        // earth_date: "2016-1-3",
+        // page: 1,
+        // sol:1000,
         api_key: import.meta.env.VITE_API_KEY_NASA,
-        earth_date: "2024-6-3"
+     
     },
 });
 

@@ -9,7 +9,7 @@ const Cardsgrid = ({objects, mode}: { objects : News[] | HubbleImage[] | WebbIma
     mode: string}): ReactNode => {
 
     if(mode ==="hubble-page"){
-        return <div className="mb-16 grid gap-2 auto-rows-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        return <div className="mb-16 grid gap-2 auto-rows-fr grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {(objects as HubbleImage[]).map((item,index) => (
                 <HubbleCard image={item} key={index}/>
             ))}
