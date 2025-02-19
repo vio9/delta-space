@@ -5,7 +5,7 @@ export type Link =  {
 
 export const links : Link[] = [
     {ref:"/", label:"home"},
-    {ref:"/nasa", label:"nasa"},
+    {ref:"/nasa", label:"NASA'S Curiosity"},
     {ref:"/webb", label:"james webb"},
     {ref:"/hubble", label:"hubble"},
     {ref:"/news", label:"news"},

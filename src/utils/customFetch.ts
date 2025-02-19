@@ -27,9 +27,6 @@ export const webbCustomFetch = axios.create({
 export const roverNasaCustomFetch = axios.create({
     baseURL: roverNasaAPI,
     params: { 
-        // earth_date: "2016-1-3",
-        // page: 1,
-        // sol:1000,
         api_key: import.meta.env.VITE_API_KEY_NASA,
      
     },

@@ -8,12 +8,13 @@ import { hubblePageLoader } from './pages/Hubble'
 import { apodPageLoader } from './pages/Apod'
 import { webbpageLoader } from './pages/Webb'
 import { nasaRoverPageLoader } from './pages/Nasa'
+import { LandingPageLoader } from './pages/Landing'
 
 const router = createBrowserRouter([
   {   path:'/', 
       element: <HomeLayout/>, 
       children:[
-        {index: true, element: <Landing/>}, // page home
+        {index: true, element: <Landing/>, loader: LandingPageLoader,errorElement:<ErrorElement/>}, // page home
         {path:"news", element:<News />, loader: newsPageLoader, errorElement:<ErrorElement/> }, // on passe par le loader av le comp => succès => comp
         {path:"webb", element:<Webb />, loader: webbpageLoader, errorElement: <ErrorElement/> },
         {path:"nasa", element:<Nasa />, loader: nasaRoverPageLoader, errorElement: <ErrorElement/>},
