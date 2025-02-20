@@ -1,5 +1,7 @@
+import { NewsLauncher, CuriosityLauncher, ApodLauncher, WebbLauncher, HubbleLauncher } from "@/components";
 import { datastroCustomFetch, nasaCustomFetch, snapiCustomFetch } from "@/utils/customFetch";
-import { LoaderFunction } from "react-router-dom";
+import { ApodType, HubbleImage, HubbleImagesResponse, LandingPageNewsApodHubbles, News, NewsResponse } from "@/utils/types";
+import { LoaderFunction, useLoaderData } from "react-router-dom";
 
 const newsParams = {ordering : "published_at"};
 const hubblesParams = { 
@@ -7,37 +9,41 @@ const hubblesParams = {
   limit : 12,
 }
 
-export const newsFetch = async () => {
+export const newsFetch = async (): Promise<News[] | null> => {
 try {
-  const response = await snapiCustomFetch.get("", {params : newsParams});
-  return response.data;
+  const response = await snapiCustomFetch.get<NewsResponse>("", {params : newsParams});
+  return response.data.results;
 } catch (error) {
   console.log(error)
+  return null
 }
 }
 
-export const apodFetch = async () => {
+export const apodFetch = async ():Promise<ApodType | null> => {
   try {
-    const response = await nasaCustomFetch.get("");
+    const response = await nasaCustomFetch.get<ApodType>("");
     return response.data;
   } catch (error) {
     console.log(error)
+    return null
   }
   }
 
-  export const hubblesFetch = async () => {
+  export const hubblesFetch = async (): Promise<HubbleImage[] | null> => {
     try {
-      const response = await datastroCustomFetch.get("", {params : hubblesParams});
-      return response.data;
+      const response = await datastroCustomFetch.get<HubbleImagesResponse>("", {params : hubblesParams});
+      return response.data.results;
     } catch (error) {
       console.log(error)
+      return null
     }
     }
 
-export const LandingPageLoader : LoaderFunction = async() => {
+
+
+export const LandingPageLoader : LoaderFunction = async(): Promise<LandingPageNewsApodHubbles | null> => {
   try {
     const [news, apod, hubbles] = await Promise.all([newsFetch(), apodFetch(), hubblesFetch()]);
-    console.log(news, apod, hubbles)
     return {news, apod, hubbles}
   } catch (error) {
     console.log("error:",error);
@@ -46,8 +52,16 @@ export const LandingPageLoader : LoaderFunction = async() => {
 }
 
 const Landing = () => {
+  const data = useLoaderData() as LandingPageNewsApodHubbles;
+  console.log(data)
   return (
-    <div>Landing</div>
+    <section>
+      <NewsLauncher />
+      <CuriosityLauncher />
+      <ApodLauncher />
+      <WebbLauncher />
+      <HubbleLauncher/>
+    </section>
   )
 }
 

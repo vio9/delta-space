@@ -139,3 +139,9 @@ export type RoversNasaImage = {
   
         }
     }
+
+    export type LandingPageNewsApodHubbles = {
+        news : News[] | null;
+        apod : ApodType | null;
+        hubbles : HubbleImage[] | null;
+      }

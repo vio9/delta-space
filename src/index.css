@@ -110,4 +110,17 @@ body{
     box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.75);
  
   }
+
+  .curiosity{
+    background-image: url('./assets/images/curiosity-cover.jpg');
+    background-position: 50% 18%;
+    background-size:cover;
+  }
+
+  .slider-button{
+    padding:0.5rem 1rem;
+    border:solid 1px white;
+    background-color:transparent;
+    transition: all 0.2s ease-out;
+  }
 }
