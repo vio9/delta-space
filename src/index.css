@@ -108,7 +108,6 @@ body{
   .slider-card:hover{
     transform: translate(-2px, -2px);
     box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.75);
- 
   }
 
   .curiosity{
@@ -122,5 +121,19 @@ body{
     border:solid 1px white;
     background-color:transparent;
     transition: all 0.2s ease-out;
+    background: linear-gradient(to top, white 50% ,transparent 50%);
+    background-size : 100% 200%;
+    background-position : top;
+  }
+  .slider-button:hover{
+    color:black;
+    background-position:bottom;
+  }
+
+  .webb{
+    background-image: url('./assets/images/telescopic-mirror-74034_1280.jpg');
+    background-position: 50% 35%;
+    background-size:cover;
   }
 }
+
