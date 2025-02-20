@@ -1,7 +1,7 @@
 import { NewsLauncher, CuriosityLauncher, ApodLauncher, WebbLauncher, HubbleLauncher } from "@/components";
 import { datastroCustomFetch, nasaCustomFetch, snapiCustomFetch } from "@/utils/customFetch";
 import { ApodType, HubbleImage, HubbleImagesResponse, LandingPageNewsApodHubbles, News, NewsResponse } from "@/utils/types";
-import { LoaderFunction, useLoaderData } from "react-router-dom";
+import { LoaderFunction } from "react-router-dom";
 
 const newsParams = {ordering : "published_at"};
 const hubblesParams = { 
@@ -52,8 +52,7 @@ export const LandingPageLoader : LoaderFunction = async(): Promise<LandingPageNe
 }
 
 const Landing = () => {
-  const data = useLoaderData() as LandingPageNewsApodHubbles;
-  console.log(data)
+
   return (
     <section>
       <NewsLauncher />
