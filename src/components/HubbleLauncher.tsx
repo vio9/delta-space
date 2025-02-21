@@ -1,7 +1,7 @@
 import { LandingPageNewsApodHubbles } from "@/utils/types"
 import { Link, useLoaderData } from "react-router-dom"
 import Title from "./Title";
-import { CirclePlay } from "lucide-react";
+import { CircleArrowRight} from "lucide-react";
 import Cardsgrid from "./Cardsgrid";
 
 
@@ -13,17 +13,17 @@ function HubbleLauncher() {
   }
 
   return (
-    <article className="">
-      <div>
+    <article className="align-element w-full my-6">
+      <div className="flex justify-between items-center">
         <Title text="Hubble photos" />
-        <div className="">
-          <p></p>
+        <div className="flex">
+          <p className="pr-2">More photos</p>
           <Link to="/hubble">
-            <CirclePlay color="" className="" />
+            <CircleArrowRight color="#152ebd" className="transition-all hover:scale-125" />
           </Link>
         </div>
       </div>
-      <Cardsgrid mode="hubble" objects={hubbles}/>
+      <Cardsgrid mode="hubble" objects={hubbles} />
     </article>
   )
 }

@@ -8,7 +8,7 @@ import RoverCard from "./RoverCard";
 const Cardsgrid = ({objects, mode}: { objects : News[] | HubbleImage[] | WebbImage[] | (RoversNasaImage | null)[] ; 
     mode: string}): ReactNode => {
 
-    if(mode ==="hubble-page"){
+    if(mode === "hubble"){
         return <div className="mb-16 grid gap-2 auto-rows-fr grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {(objects as HubbleImage[]).map((item,index) => (
                 <HubbleCard image={item} key={index}/>

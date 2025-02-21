@@ -19,7 +19,7 @@ const HubbleCard = ({image }: { image: HubbleImage}) => {
         </CardContent>
         <CardFooter className="flex gap-2 absolute bottom-2 text-white">
             <p>Taken : {photo_date_taken}</p>
-            <CircleArrowRight color="var(--clr-violet)" className="hover:scale-150 transition-all cursor-pointer"/>
+            <CircleArrowRight color="var(--clr-violet)" className="hover:scale-125 transition-all cursor-pointer"/>
         </CardFooter>
        </Card>
     </Link>
