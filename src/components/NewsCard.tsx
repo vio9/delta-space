@@ -6,7 +6,7 @@ function NewsCard({news} : {news : News}) {
     const {image_url, title, news_site, url} = news;
   
     return (
-           <Card className="m-1 bg-gradient-to-b from-blue-100 to-white">
+           <Card className="m-1 rounded-none">
            <Link to={url}>
                <CardHeader className="text-whitep-0">Info from : {news_site}</CardHeader>
                <CardContent>

@@ -6,7 +6,7 @@ import { LoaderFunction, useLoaderData } from "react-router-dom";
 import imgDefaultWebb from "../assets/images/pexels-miriamespacio.jpg";
 
 const newsParams = {
-  news_site_exclude : "SpacePolicyOnline.com", 
+  news_site_exclude : "SpacePolicyOnline.com,teslarati", 
   limit:10,
   ordering: "published_at",
   summary_contains:"webb",

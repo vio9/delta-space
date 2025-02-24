@@ -4,7 +4,7 @@ import { FiltersParams, NewsResponse, NewsResponseWithParams } from "@/utils/typ
 import { LoaderFunction, useLoaderData } from "react-router-dom";
 
 const newsParams = {
-  news_site_exclude : "SpacePolicyOnline.com", // site exclu photos moches
+  news_site_exclude : "SpacePolicyOnline.com,teslarati.com,",// site exclu photos moches
   limit:20,
   ordering: "published_at" // on ordonne les datas par date
 }

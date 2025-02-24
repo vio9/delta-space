@@ -5,7 +5,7 @@ import { Video } from "lucide-react"
 function RoverCard({image}: {image: RoversNasaImage}) {
     const {img_src, camera} = image
   return (
-    <Card className="bg-gradient-to-l from-gray-100 to-white">
+    <Card className="rounded-none">
     <CardHeader className="flex-row"><Video size={26} className="pr-1"/> Camera name : {camera.name}</CardHeader>
     <CardContent><img src={img_src} alt = "rover curiosity" className="w-full" /></CardContent>
     <CardFooter></CardFooter>

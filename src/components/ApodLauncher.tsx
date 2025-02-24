@@ -12,9 +12,9 @@ function ApodLauncher() {
   const { copyright, date, media_type, title, url } = apod;
 
   return (
-    <article className="w-full py-12">
+    <article className="w-full py-12 bg-slate-800">
       <div className="align-element h-full grid gap-4 lg:grid-cols-2">
-        <div>
+        <div className="text-white">
           <p className="capitalize text-xl">Today</p>
           <p className="capitalize my-4 text-4xl font-bold">
             NASA'S picture of the day

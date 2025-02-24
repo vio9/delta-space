@@ -20,3 +20,5 @@ export { default as HubbleLauncher} from "./HubbleLauncher";
 export { default as WebbLauncher} from "./WebbLauncher";
 export { default as NewsLauncherHeader} from "./NewsLauncherHeader";
 export { default as NewsLauncherSquaredCards} from "./NewsLauncherSquaredCards";
+export { default as NewsLauncherBubbledCards } from "./NewsLauncherBubbledCards";
+export { default as NewsBubble } from "./NewsBubble";

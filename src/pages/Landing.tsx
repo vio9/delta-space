@@ -3,7 +3,7 @@ import { datastroCustomFetch, nasaCustomFetch, snapiCustomFetch } from "@/utils/
 import { ApodType, HubbleImage, HubbleImagesResponse, LandingPageNewsApodHubbles, News, NewsResponse } from "@/utils/types";
 import { LoaderFunction } from "react-router-dom";
 
-const newsParams = {ordering : "published_at"};
+const newsParams = {ordering : "published_at",  news_site_exclude : "teslarati"};
 const hubblesParams = { 
   order_by : "photo_date_taken desc",
   limit : 12,
@@ -55,11 +55,11 @@ const Landing = () => {
 
   return (
     <section>
-      <NewsLauncher />
       <CuriosityLauncher />
-      <ApodLauncher />
       <WebbLauncher />
       <HubbleLauncher/>
+      <NewsLauncher />
+      <ApodLauncher />
     </section>
   )
 }
