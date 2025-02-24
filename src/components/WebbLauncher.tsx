@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 function WebbLauncher() {
   return (
-   <article className="test w-full  h-[40vh] webb pt-24">
+   <article className="w-full  h-[40vh] webb pt-24">
     <div className="align-element text-white p-2 flex flex-col">
       <p className="font-bold text-4xl capitalize max-w-[40%] place-self-end">
         The most recent photos taken by the James Webb Telescope</p>

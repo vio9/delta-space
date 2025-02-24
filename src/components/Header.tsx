@@ -3,7 +3,7 @@ import spaceImg from "../assets/images/delta-white.svg";
 import { ReactNode } from "react";
 
 const Header = (): ReactNode => {
-    return <header className="test bg-black">
+    return <header className="bg-black">
             <div className=" align-element grid grid-cols-2 md:grid-cols-3 p-2">
                 <Link to="/" className="justify-self-start self-center">
                     <h1 className="alkia text-lg pt-2 tracking[0.8rem] text-white">deltaSpace</h1>
