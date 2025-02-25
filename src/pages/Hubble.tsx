@@ -1,4 +1,4 @@
-import { CardsGrid, Filters, Overview, Title } from "@/components";
+import { CardsGrid, Filters, Overview, PaginationContainer, Title } from "@/components";
 import { datastroCustomFetch } from "@/utils/customFetch"
 import { FiltersParams, HubbleImagesResponse, HubbleImagesResponseWithParams } from "@/utils/types";
 import { LoaderFunction, useLoaderData } from "react-router-dom";
@@ -34,7 +34,7 @@ const Hubble = () => {
     <CardsGrid objects={response.results} mode="hubble">
 
     </CardsGrid>
-
+    <PaginationContainer/>
    </section>
   )
 }
