@@ -8,7 +8,7 @@ const LinksDesktop = () => {
         const {ref, label} = link as Link;
         return <NavLink to={ref} className={({isActive}) => 
             `capitalize tracking-wide ${
-                isActive ? "underline text-xl" : ""
+                isActive ? "underline font-bold" : ""
                 }`
             }
             >

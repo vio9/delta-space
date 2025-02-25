@@ -14,7 +14,7 @@ const Filters = ({term, mode}: {term: string | undefined; mode :string }): React
           defaultValue={term}
           placeholder="'m45' 'neutron star' 'starship'"
         />
-        <div className="self-end flex gap-2">
+        <div className="self-end flex gap-2 mt-2">
             <Button type="submit"  size="lg">Search</Button>
             <Button type="button" variant="outline" size="lg">
               <Link to={ mode === "news"? "/news" : "/hubble" }> Reset</Link></Button>

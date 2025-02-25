@@ -3,7 +3,7 @@ import LinksMobile from "./LinksMobile"
 
 const Navbar = () => {
   return (
-    <nav className="bg-black py-5">
+    <nav className="bg-sky-950 py-5">
       <div className="align-element">
         <LinksMobile />
         <LinksDesktop />

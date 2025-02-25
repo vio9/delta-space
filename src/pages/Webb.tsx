@@ -67,6 +67,7 @@ const Webb = () => {
  const {news, imagery} =  useLoaderData() as WebbNewsAndImagery
  
  return (
+
     <section className="section">
       <Title text="James Webb space telescope"/>
       { news && <RelatedNews news={news} />}
@@ -75,6 +76,7 @@ const Webb = () => {
       <Title text="Recent images"/>
       { imagery && <CardsGrid objects={imagery} mode="imagery" />}
     </section>
+
   )
 }
 

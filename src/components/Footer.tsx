@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-slate-950 text-white">
       <div className="align-element min-h-[15vh] flex flex-col justify-center items-center">
         <p className="my-2">-2025-</p>
         <p className="text-2-xl my-4 text-center">deltaSpace, by Vio</p>
