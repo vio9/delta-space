@@ -42,7 +42,7 @@ const Apod = () => {
  }, [day]);
 
   return (
-    <section className="section">
+    <section className="section m-2 sm:m-2 md:m-2 lg:m-auto">
       <Title text="picture of the day"/>
         <ApodPlayer 
           apod={data} 

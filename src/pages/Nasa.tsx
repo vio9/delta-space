@@ -25,7 +25,7 @@ console.log("roverdata", roversData)
 const {earth_date, rover} = roversData[0];
 
   return (
-    <section className="section">
+    <section className="section m-3 lg:m-auto md:m-2 sm:m-2 ">
       <Title text="Nasa Curiosity rover"/>
       <p className="pb-3 font-semibold ">Here are the latest photos received by NASA from the Curiosity rover.</p>
       <p className="pb-3 font-semibold flex flex-row"><PlaneTakeoff size={22} className="pr-1"/>Earth launch date: {rover.launch_date}</p>
