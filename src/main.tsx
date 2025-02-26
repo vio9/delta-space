@@ -10,6 +10,7 @@ import { webbpageLoader } from './pages/Webb'
 import { nasaRoverPageLoader } from './pages/Nasa'
 import { LandingPageLoader } from './pages/Landing'
 import { singleHubblePageLoader } from './pages/SingleHubble'
+import About from './pages/About'
 
 const router = createBrowserRouter([
   {   path:'/', 
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
         {path:"apod", element:<Apod />, loader: apodPageLoader, errorElement:<ErrorElement/>},
         {path:"hubble", element:<Hubble/>, loader: hubblePageLoader, errorElement:<ErrorElement/>},
         {path:"hubble/:id", element:<SingleHubble/>, loader: singleHubblePageLoader, errorElement:<ErrorElement/>},
+        {path:"about", element:<About/>, errorElement:<ErrorElement/>},
   ]}
 ])
 createRoot(document.getElementById('root')!).render(

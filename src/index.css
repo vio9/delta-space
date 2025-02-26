@@ -92,7 +92,7 @@ body{
   }
  
   .align-element{
-    @apply max-w-6xl mx-auto px-8;
+    @apply max-w-7xl mx-auto px-8;
   }
   .section{
     @apply test min-h-[100vh] align-element px-0 py-12 border-none;

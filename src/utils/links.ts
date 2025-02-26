@@ -10,4 +10,5 @@ export const links : Link[] = [
     {ref:"/hubble", label:"hubble"},
     {ref:"/news", label:"news"},
     {ref:"/apod", label:"NASA'S day photo"},
+    {ref:"/about", label:"About"},
 ]
