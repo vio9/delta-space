@@ -43,7 +43,6 @@ try {
 export const imageryFetch = async ():Promise<WebbImage[] | null> => {
   try {
     const response = await webbCustomFetch.get<WebbImagesResponse>("", { params: imagesParams });
-    console.log("imagery:",response.data.body);
     return response.data.body;
   } catch (error) {
     console.log(error);

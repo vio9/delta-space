@@ -1,5 +1,8 @@
+import { buildPrevAndNextUrls } from "@/utils/pagination";
 import { HubbleImagesResponseWithParams, NewsResponseWithParams } from "@/utils/types"
+import { useEffect } from "react";
 import { useLoaderData, useLocation } from "react-router-dom"
+import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from "./ui/pagination";
 
 function PaginationContainer() {
     // on récup les données du useloaderData qui sont de type hubbleresp ou newsresp et on les destructure en prenant response qui est présent dans les deux types
@@ -38,11 +41,25 @@ function PaginationContainer() {
         lastPage = Math.floor(objectsInTotal / objectsPerPage) + 1
     }
     
+    const {prevUrl, nextUrl} = buildPrevAndNextUrls({page : activePage, pathname, search, lastPage})
 
-
+    useEffect(() => {
+        console.log("prevURL",prevUrl)
+        console.log("active page", activePage)
+        console.log("nexturl", nextUrl)
+    }, [activePage, nextUrl, prevUrl])
 
     return (
-    <div>PaginationContainer</div>
+    <Pagination>
+        <PaginationContent>
+            <PaginationItem>
+                <PaginationPrevious to={prevUrl} size={"default"}></PaginationPrevious>
+            </PaginationItem>
+            <PaginationItem>
+                <PaginationNext to={nextUrl} size={"default"}></PaginationNext>
+            </PaginationItem>
+        </PaginationContent>
+    </Pagination>
   )
 }
 
