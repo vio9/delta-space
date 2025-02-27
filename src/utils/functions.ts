@@ -11,3 +11,13 @@ export const numberToDate = (number:number):string => {
         return dateToString(new Date(today.setDate(today.getDate() - number)));
     }
 }
+
+export const complicatedToNormalDate = (complicatedDate : string):string => {
+    const date = new Date(complicatedDate);
+    return date.toLocaleString('fr-FR', {
+        year:'numeric',
+        month:'numeric',
+        day:'numeric'
+    })
+}
+ 

@@ -8,7 +8,7 @@ import imgDefaultWebb from "../assets/images/pexels-miriamespacio.jpg";
 const newsParams = {
   news_site_exclude : "SpacePolicyOnline.com,teslarati", 
   limit:10,
-  ordering: "published_at",
+  ordering: "-updated_at",
   summary_contains:"webb",
 }
 
@@ -67,7 +67,7 @@ const Webb = () => {
  
  return (
 
-    <section className="section">
+    <section className="section max-w-[90rem]">
       <Title text="James Webb space telescope"/>
       { news && <RelatedNews news={news} />}
       <Title text="Videos in brief"/>

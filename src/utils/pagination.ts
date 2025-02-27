@@ -20,17 +20,16 @@ type BuildPrevAndNextUrlsProps = {
 }
 
 export const buildPrevAndNextUrls = ({
-    page, pathname, search, lastPage} : 
-    BuildPrevAndNextUrlsProps) : {prevUrl:string, nextUrl:string} => {
-        let prevPage = page -1;
-        if(prevPage < 1){
-            page = lastPage
-        }
+    page, 
+    pathname, 
+    search, 
+    lastPage
+} : BuildPrevAndNextUrlsProps) : { prevUrl : string, nextUrl : string} => {
+        let prevPage = page - 1;
+        if(prevPage < 1) prevPage = lastPage;
         const prevUrl = buildURL({page: prevPage, pathname, search});
         let nextPage = page + 1;
-        if(nextPage >= lastPage){
-            nextPage = 1;
-        }
+        if(nextPage >= lastPage) nextPage = 1;   
         const nextUrl = buildURL({page : nextPage , pathname, search})
         return {prevUrl, nextUrl};
 }

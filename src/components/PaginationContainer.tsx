@@ -1,8 +1,8 @@
-import { buildPrevAndNextUrls } from "@/utils/pagination";
+import { buildPrevAndNextUrls, buildURL } from "@/utils/pagination";
 import { HubbleImagesResponseWithParams, NewsResponseWithParams } from "@/utils/types"
-import { useEffect } from "react";
+import {ReactNode} from "react";
 import { useLoaderData, useLocation } from "react-router-dom"
-import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from "./ui/pagination";
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "./ui/pagination";
 
 function PaginationContainer() {
     // on récup les données du useloaderData qui sont de type hubbleresp ou newsresp et on les destructure en prenant response qui est présent dans les deux types
@@ -14,7 +14,7 @@ function PaginationContainer() {
     // on récup la page qui est inclu dans searchParams
     const pageFromUrl : string | null = searchParams.get("page");
     // on determine combien d'elements on a par page 
-    const objectsPerPage = 24;
+    const objectsPerPage = 24; 
     // on crée la variable firstpage qui est 1
     const firstPage = 1;
 
@@ -34,27 +34,67 @@ function PaginationContainer() {
 
     let lastPage : number ;
     if(objectsInTotal === 0){
-        lastPage = 0
+        lastPage = 0;
     } else if(objectsInTotal % objectsPerPage === 0){
-        lastPage = objectsInTotal / objectsPerPage
+        lastPage = objectsInTotal / objectsPerPage;
     } else {
         lastPage = Math.floor(objectsInTotal / objectsPerPage) + 1
     }
     
-    const {prevUrl, nextUrl} = buildPrevAndNextUrls({page : activePage, pathname, search, lastPage})
+    const {prevUrl, nextUrl} = buildPrevAndNextUrls({page : activePage, pathname, search, lastPage});
 
-    useEffect(() => {
-        console.log("prevURL",prevUrl)
-        console.log("active page", activePage)
-        console.log("nexturl", nextUrl)
-    }, [activePage, nextUrl, prevUrl])
 
+    const buildButton = ({page, isActive}: {page:number, isActive : boolean}):ReactNode => {
+      const url = buildURL({page, pathname, search})
+        return (
+        <PaginationItem key={page}>
+            <PaginationLink to={url} isActive={isActive} size={"default"}>
+            {page}
+            </PaginationLink>
+        </PaginationItem>
+        )
+    }
+
+    const buildDots = (key:string): ReactNode => {
+        return (
+            <PaginationItem>
+                <PaginationEllipsis key={key}></PaginationEllipsis>
+             </PaginationItem>
+        )
+    }
+
+    const buildContent = (): ReactNode[] => {
+        let pages : ReactNode[] = [];
+        // first page
+        pages.push(buildButton({ page : firstPage, isActive : activePage === firstPage }));
+        //ellips
+        if(activePage > 2){
+            pages.push(buildDots("dots-1"));
+        }
+        // active page
+        if(activePage !== firstPage && activePage !== lastPage){
+            pages.push(buildButton({ page:activePage, isActive: activePage === activePage }));
+        } 
+        //ellips
+        if(activePage < lastPage -1){
+            pages.push(buildDots("dots+1"));
+        }
+        //last page
+        pages.push(buildButton({ page:lastPage, isActive: activePage === lastPage }));
+        return pages;
+    }
+
+    if(lastPage < 2){
+        return null;
+    }
+    
     return (
     <Pagination>
         <PaginationContent>
             <PaginationItem>
                 <PaginationPrevious to={prevUrl} size={"default"}></PaginationPrevious>
             </PaginationItem>
+            {buildContent()}
             <PaginationItem>
                 <PaginationNext to={nextUrl} size={"default"}></PaginationNext>
             </PaginationItem>

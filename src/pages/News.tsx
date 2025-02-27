@@ -6,7 +6,7 @@ import { LoaderFunction, useLoaderData } from "react-router-dom";
 const newsParams = {
   news_site_exclude : "SpacePolicyOnline.com,teslarati.com,",// site exclu photos moches
   limit:20,
-  ordering: "published_at" // on ordonne les datas par date
+  ordering: "-updated_at" // on ordonne les datas par date
 }
 
 export const newsPageLoader : LoaderFunction = async ({request}): Promise<NewsResponseWithParams  | null> => {
