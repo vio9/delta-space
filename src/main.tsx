@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import {HomeLayout, Landing, Nasa, News, Webb, Apod, Hubble, SingleHubble} from "./pages"
+import {HomeLayout, Landing, Nasa, News, Webb, Apod, Hubble, SingleHubble, ErrorMain} from "./pages"
 import { newsPageLoader } from './pages/News'
 import { ErrorElement } from './components'
 import { hubblePageLoader } from './pages/Hubble'
@@ -15,6 +15,7 @@ import About from './pages/About'
 const router = createBrowserRouter([
   {   path:'/', 
       element: <HomeLayout/>, 
+      errorElement : <ErrorMain />,
       children:[
         {index: true, element: <Landing/>, loader: LandingPageLoader,errorElement:<ErrorElement/>}, // page home
         {path:"news", element:<News />, loader: newsPageLoader, errorElement:<ErrorElement/> }, // on passe par le loader av le comp => succès => comp

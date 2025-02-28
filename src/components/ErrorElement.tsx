@@ -4,7 +4,9 @@ const ErrorElement = () => {
     const error = useRouteError()
     console.log(error);
     return(
-        <h4>error there...</h4>
+        <div className="section">
+            <h4>An error has occurred.</h4>
+        </div>
     )
 }
 

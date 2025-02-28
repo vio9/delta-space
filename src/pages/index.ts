@@ -6,3 +6,4 @@ export { default as News } from "./News";
 export { default as Nasa } from "./Nasa";
 export { default as Webb } from "./Webb";
 export { default as SingleHubble } from "./SingleHubble";
+export { default as ErrorMain } from "./ErrorMain";

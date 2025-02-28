@@ -135,6 +135,11 @@ body{
     background-position: 50% 35%;
     background-size:cover;
   }
+
+  .bg-error{
+    background-image: url('./assets/images/milky-way.jpg');
+    background-size:cover;
+  }
 }
 
 
