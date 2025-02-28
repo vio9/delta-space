@@ -15,6 +15,7 @@ export const newsPageLoader : LoaderFunction = async ({request}): Promise<NewsRe
    
    const formattedParams = {
     search: params.term ? params.term : "", 
+    offset: params.page ? 24  * (parseFloat(params.page)) - 1 : 0, //offset = gestion du decalage quand on pagine
       ...newsParams, // on recup le contenu de newsparams
    };
    const response = await snapiCustomFetch.get<NewsResponse>("", {

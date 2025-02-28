@@ -12,6 +12,7 @@ export const hubblePageLoader : LoaderFunction = async({ request }): Promise<Hub
     const params: FiltersParams = Object.fromEntries([...new URL(request.url).searchParams.entries()]);
     const formattedParams = {
       where: params.term ? `photo_title like "${params.term}"` : "",
+      offset: params.page ? 24  * (parseFloat(params.page)) - 1 : 0,
       ...hubbleParams,
     };
     const response = await datastroCustomFetch.get<HubbleImagesResponse>("", {params: formattedParams});

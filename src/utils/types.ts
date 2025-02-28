@@ -21,6 +21,7 @@ export type NewsResponse = {
 
 export type FiltersParams = {
     term? : string;
+    page? : string;
 }
 
 // super type formé à partir de newsresponse auquel on ajoute les params
