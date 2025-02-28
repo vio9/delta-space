@@ -1,4 +1,5 @@
 import { CardsGrid, Filters, Overview, PaginationContainer, Title } from "@/components";
+import { objectsPerPage } from "@/utils/constants";
 import { snapiCustomFetch } from "@/utils/customFetch";
 import { FiltersParams, NewsResponse, NewsResponseWithParams } from "@/utils/types"; // types ts
 import { LoaderFunction, useLoaderData } from "react-router-dom";
@@ -15,7 +16,7 @@ export const newsPageLoader : LoaderFunction = async ({request}): Promise<NewsRe
    
    const formattedParams = {
     search: params.term ? params.term : "", 
-    offset: params.page ? 24  * (parseFloat(params.page)) - 1 : 0, //offset = gestion du decalage quand on pagine
+    offset: params.page ? objectsPerPage  * (parseFloat(params.page)) - 1 : 0, //offset = gestion du decalage quand on pagine
       ...newsParams, // on recup le contenu de newsparams
    };
    const response = await snapiCustomFetch.get<NewsResponse>("", {

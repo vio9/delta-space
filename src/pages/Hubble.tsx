@@ -1,18 +1,19 @@
 import { CardsGrid, Filters, Overview, PaginationContainer, Title } from "@/components";
+import { objectsPerPage } from "@/utils/constants";
 import { datastroCustomFetch } from "@/utils/customFetch"
 import { FiltersParams, HubbleImagesResponse, HubbleImagesResponseWithParams } from "@/utils/types";
 import { LoaderFunction, useLoaderData } from "react-router-dom";
 
 const hubbleParams = {
   order_by: "photo_date_taken desc",
-  limit: 24,
+  limit: objectsPerPage
 }
 export const hubblePageLoader : LoaderFunction = async({ request }): Promise<HubbleImagesResponseWithParams | null> => {
   try {
     const params: FiltersParams = Object.fromEntries([...new URL(request.url).searchParams.entries()]);
     const formattedParams = {
       where: params.term ? `photo_title like "${params.term}"` : "",
-      offset: params.page ? 24  * (parseFloat(params.page)) - 1 : 0,
+      offset: params.page ? objectsPerPage  * (parseFloat(params.page)) - 1 : 0,
       ...hubbleParams,
     };
     const response = await datastroCustomFetch.get<HubbleImagesResponse>("", {params: formattedParams});

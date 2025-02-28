@@ -3,6 +3,7 @@ import { HubbleImagesResponseWithParams, NewsResponseWithParams } from "@/utils/
 import {ReactNode} from "react";
 import { useLoaderData, useLocation } from "react-router-dom"
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "./ui/pagination";
+import { objectsPerPage } from "@/utils/constants";
 
 function PaginationContainer() {
     // on récup les données du useloaderData qui sont de type hubbleresp ou newsresp et on les destructure en prenant response qui est présent dans les deux types
@@ -13,8 +14,6 @@ function PaginationContainer() {
     const searchParams = new URLSearchParams(search);
     // on récup la page qui est inclu dans searchParams
     const pageFromUrl : string | null = searchParams.get("page");
-    // on determine combien d'elements on a par page 
-    const objectsPerPage = 24; 
     // on crée la variable firstpage qui est 1
     const firstPage = 1;
 
