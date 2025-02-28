@@ -17,8 +17,8 @@ const router = createBrowserRouter([
       element: <HomeLayout/>, 
       errorElement : <ErrorMain />,
       children:[
-        {index: true, element: <Landing/>, loader: LandingPageLoader,errorElement:<ErrorElement/>}, // page home
-        {path:"news", element:<News />, loader: newsPageLoader, errorElement:<ErrorElement/> }, // on passe par le loader av le comp => succès => comp
+        {index: true, element: <Landing/>, loader: LandingPageLoader,errorElement:<ErrorElement/>}, 
+        {path:"news", element:<News />, loader: newsPageLoader, errorElement:<ErrorElement/> }, 
         {path:"webb", element:<Webb />, loader: webbpageLoader, errorElement: <ErrorElement/> },
         {path:"nasa", element:<Nasa />, loader: nasaRoverPageLoader, errorElement: <ErrorElement/>},
         {path:"apod", element:<Apod />, loader: apodPageLoader, errorElement:<ErrorElement/>},

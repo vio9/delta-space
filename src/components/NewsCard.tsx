@@ -6,7 +6,6 @@ function NewsCard({news} : {news : News}) {
     const {image_url, title, news_site, url, updated_at} = news;
 
     const newDate = complicatedToNormalDate(updated_at)
-    console.log(newDate) 
 
     return (
            <Card className="m-1 rounded-none border-stone-100 bg-slate-50">
