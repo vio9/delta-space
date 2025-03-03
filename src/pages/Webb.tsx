@@ -34,7 +34,7 @@ try {
   return response.data.results;
 
 } catch (error) {
-  console.log(error);
+  console.error(error);
   return null;
   
 }
@@ -45,7 +45,7 @@ export const imageryFetch = async ():Promise<WebbImage[] | null> => {
     const response = await webbCustomFetch.get<WebbImagesResponse>("", { params: imagesParams });
     return response.data.body;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
   }
@@ -56,7 +56,7 @@ try {
   const [news, imagery] = await Promise.all([newsFetch(), imageryFetch()]);
   return {news, imagery}
 } catch (error) {
-  console.log(error)
+  console.error(error)
   return null
 }
 }

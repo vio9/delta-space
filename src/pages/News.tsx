@@ -24,7 +24,7 @@ export const newsPageLoader : LoaderFunction = async ({request}): Promise<NewsRe
    });
    return {response : response.data, params} ;//  avec axios le contenu est dans data
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 }

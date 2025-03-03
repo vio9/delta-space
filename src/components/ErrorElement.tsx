@@ -2,7 +2,8 @@ import { useRouteError } from "react-router-dom";
 
 const ErrorElement = () => {
     const error = useRouteError()
-    console.log(error);
+    console.error(error);
+
     return(
         <div className="section">
             <h4>An error has occurred.</h4>

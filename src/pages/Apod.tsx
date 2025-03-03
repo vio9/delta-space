@@ -12,7 +12,7 @@ export const apodPageLoader: LoaderFunction = async () : Promise< ApodType | nul
     const response = await nasaCustomFetch.get<ApodType>("");
     return response.data
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 }
@@ -31,7 +31,7 @@ const Apod = () => {
         setData(response.data);
         setIsLoading(false);
     } catch (error) {
-        console.log(error);
+        console.error(error);
         setIsLoading(false);
         return null;
     }

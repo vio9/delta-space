@@ -14,7 +14,7 @@ try {
   const response = await snapiCustomFetch.get<NewsResponse>("", {params : newsParams});
   return response.data.results;
 } catch (error) {
-  console.log(error)
+  console.error(error)
   return null
 }
 }
@@ -24,7 +24,7 @@ export const apodFetch = async ():Promise<ApodType | null> => {
     const response = await nasaCustomFetch.get<ApodType>("");
     return response.data;
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return null
   }
   }
@@ -34,7 +34,7 @@ export const apodFetch = async ():Promise<ApodType | null> => {
       const response = await datastroCustomFetch.get<HubbleImagesResponse>("", {params : hubblesParams});
       return response.data.results;
     } catch (error) {
-      console.log(error)
+      console.error(error)
       return null
     }
     }
@@ -46,7 +46,7 @@ export const LandingPageLoader : LoaderFunction = async(): Promise<LandingPageNe
     const [news, apod, hubbles] = await Promise.all([newsFetch(), apodFetch(), hubblesFetch()]);
     return {news, apod, hubbles}
   } catch (error) {
-    console.log("error:",error);
+    console.error(error)
     return null;
   }
 }

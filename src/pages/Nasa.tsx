@@ -11,6 +11,7 @@ export const nasaRoverPageLoader: LoaderFunction = async (): Promise<RoversNasaI
     const response = await roverNasaCustomFetch.get<{ latest_photos: RoversNasaImage[] }>("");
     return response.data.latest_photos;
   } catch (error) {
+    console.error(error)
     return null;
   }
 };

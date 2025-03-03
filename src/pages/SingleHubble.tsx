@@ -11,7 +11,7 @@ export const singleHubblePageLoader:LoaderFunction = async ({params}): Promise <
         const response = await datastroCustomFetch.get<HubbleImagesResponse>("", {params: formattedParams})
         return response.data.results[0];
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return null;
     }
 }

@@ -63,7 +63,7 @@ function PaginationContainer() {
     }
 
     const buildContent = (): ReactNode[] => {
-        let pages : ReactNode[] = [];
+       const pages : ReactNode[] = [];
         // first page
         pages.push(buildButton({ page : firstPage, isActive : activePage === firstPage }));
         //ellips
