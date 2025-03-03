@@ -32,11 +32,9 @@ try {
     }
   })
   return response.data.results;
-
 } catch (error) {
   console.error(error);
   return null;
-  
 }
 }
 
@@ -60,7 +58,6 @@ try {
   return null
 }
 }
-
 
 const Webb = () => {
  const {news, imagery} =  useLoaderData() as WebbNewsAndImagery
