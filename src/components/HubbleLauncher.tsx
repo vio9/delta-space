@@ -9,7 +9,7 @@ function HubbleLauncher() {
   const {hubbles} = useLoaderData() as LandingPageNewsApodHubbles;
  
   if(!hubbles){
-    return <>Problem while fetching data</>;
+    return <div>Problem while fetching data</div>;
   }
 
   return (

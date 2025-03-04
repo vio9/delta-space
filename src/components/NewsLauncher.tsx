@@ -8,7 +8,7 @@ function NewsLauncher() {
 const { news }= useLoaderData()as LandingPageNewsApodHubbles;
 
   return (
-    <article className="w-full py-12 bg-slate-300">
+    <article className="w-full py-8 bg-slate-300 lg:py-12">
       <div className="align-element h-full ">
        <NewsLauncherHeader/>
        {news  && <NewsLauncherSquaredCards news= {news}/>}
