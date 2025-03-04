@@ -61,7 +61,7 @@ const Webb = () => {
 
  return (
 
-    <section className="section max-w-[90rem]">
+    <section className="section max-w-[90rem] p-2">
       <Title text="James Webb space telescope"/>
       { news && <RelatedNews news={news} isLoading={isLoading}/>}
       <Title text="Videos in brief"/>

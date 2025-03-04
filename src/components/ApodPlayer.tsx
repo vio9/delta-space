@@ -1,5 +1,7 @@
 import { ApodType } from "@/utils/types"
 import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
+import { Progress } from "./ui/progress";
+import { useEffect, useState } from "react";
 
 type ApodPlayerProps = {
   apod: ApodType,
@@ -10,6 +12,7 @@ type ApodPlayerProps = {
 
 function ApodPlayer({apod, day, setDay, isLoading} : ApodPlayerProps) {
     const { copyright, date, explanation, media_type, title, url } = apod;
+    const [progress, setProgress] = useState<number>(10)
 
     const previousHandler = () => {
         setDay((state) => {
@@ -26,19 +29,22 @@ function ApodPlayer({apod, day, setDay, isLoading} : ApodPlayerProps) {
       })
   }
 
-
+  useEffect(() => {
+    const timer = setTimeout(() => setProgress(100), 500)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
         <>
             <div className="w-full mx-auto flex justify-between">
               <button className="mx-4" disabled={day === 0} onClick={nextHandler}>
                 <CircleChevronLeft size={36} 
-                className={`transition-all text-[--clr-violet-light] ${day !== 0 ? "hover:scale-110 hover:text-[--clr-violet]" : ""}`}/>
+                className={`transition-all text-slate-500 ${day !== 0 ? "hover:scale-110 hover:text-slate-100" : ""}`}/>
               </button>
 
               {
                 !isLoading ? (
-                  <div className="h-[400px] w-full">
+                  <div className="lg:h-[42rem] w-full">
                   {media_type === "video " ? <iframe height="100%" width="100%" src={url}></iframe>
                   :
                   <img 
@@ -51,15 +57,18 @@ function ApodPlayer({apod, day, setDay, isLoading} : ApodPlayerProps) {
                 :
                 (
                 <div className="h-[400px] w-full grid place-content-center">
-                  <p>is loading...</p>
+                   <p className="mb-6">Photo is loading....</p>
+                    <Progress 
+                    value={progress} className="lg:w-[40rem] w-[60%] [&>div]:bg-cyan-600" />
+                
                 </div>
               )
               }
                 <button className="mx-4" onClick={previousHandler}>
-                  <CircleChevronRight size={36} className="transition-all text-[--clr-violet-light]  hover:scale-110 hover:text-[--clr-violet]"/>
+                  <CircleChevronRight size={36} className="transition-all text-slate-500  hover:scale-110 hover:text-slate-100"/>
                 </button>
             </div>
-            <div className="capitalize text-center text-2xl">{date}</div>
+            <div className="capitalize text-center text-1xl p-2 text-slate-500">{date}</div>
             <div className="mx-auto w-full my-8">
               <p className="capitalize text-2xl mb-2">{title}</p>
               <p className="text-justify m-1 lg:text-left">{explanation}</p>

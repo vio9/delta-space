@@ -10,6 +10,7 @@ const RelatedNews = ({news, isLoading } : RelatedNewsProps ) => {
     const timer = setTimeout(() => setProgress(100), 1600)
     return () => clearTimeout(timer)
   }, [])
+  
   return (
     <div>
         <h1 className="capitalize my-4 text-1xl">Related news</h1>
@@ -23,9 +24,10 @@ const RelatedNews = ({news, isLoading } : RelatedNewsProps ) => {
             }
             </div>)
             :
-            (  <div className="flex flex-col bg-slate-100 p-4 rounded-sm lg:w-[50rem]">
-              <p className="mb-6">News are Loading</p>
-              <Progress className=" lg:w-[40rem]" value={progress} />
+            (  <div className="flex flex-col bg-slate-100 p-4 rounded-sm lg:w-[42rem]">
+              <p className="mb-6">The news are loading....</p>
+              <Progress 
+              value={progress} className="lg:w-[40rem] w-[60%] [&>div]:bg-cyan-600" />
                 </div>
               )
         }
