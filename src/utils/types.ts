@@ -19,10 +19,16 @@ export type NewsResponse = {
     results : News[];
 }
 
+export type RelatedNewsProps = {
+    news: News[];
+    isLoading : boolean;
+}
+
 export type FiltersParams = {
     term? : string;
     page? : string;
 }
+
 
 // super type formé à partir de newsresponse auquel on ajoute les params
 export type NewsResponseWithParams = { response : NewsResponse, params : FiltersParams}
