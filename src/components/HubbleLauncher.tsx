@@ -17,10 +17,12 @@ function HubbleLauncher() {
       <div className="flex justify-between items-center">
         <Title text="Hubble photos" />
         <div className="flex">
-          <p className="pr-2">More photos</p>
+        <div className=" bg-slate-200 rounded-md p-3 flex">
+          <p className="pr-2 text-slate-700 md:text-1xl lg:text-1xl ">More photos</p>
           <Link to="/hubble">
-            <CircleArrowRight color="#152ebd" className="transition-all hover:scale-125" />
+            <CircleArrowRight size={25} className="text-slate-700 ml-2" />
           </Link>
+          </div>
         </div>
       </div>
       <Cardsgrid mode="hubble" objects={hubbles} />

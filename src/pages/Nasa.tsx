@@ -23,7 +23,7 @@ const {earth_date, rover} = roversData[0];
 
   return (
     <div className="bg-gradient-to-b from-slate-200 to-slate-400">
-    <section className="section m-3 lg:m-auto md:m-2 sm:m-2 ">
+    <section className="section mx-3 lg:m-auto md:mx-2 sm:mx-2 ">
       <Title text="Nasa Curiosity rover"/>
       <p className="pb-3 font-semibold ">Here are the latest photos received by NASA from the Curiosity rover.</p>
       <p className="pb-3 font-semibold flex flex-row"><PlaneTakeoff size={25} className="pr-1  bg-white p-1 mr-1 rounded-md shadow-md"/>Earth launch date: {rover.launch_date}</p>
