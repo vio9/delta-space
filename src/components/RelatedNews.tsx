@@ -16,7 +16,7 @@ const RelatedNews = ({news, isLoading } : RelatedNewsProps ) => {
         <h1 className="capitalize my-4 text-1xl">Related news</h1>
         {
           !isLoading ? 
-          (  <div className="grid gap-2 auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-2">
+          (  <div className="grid gap-2 auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-2">
             {
                 news.map(newItem => 
                    <NewsCard key={newItem.id} news={newItem}/>
