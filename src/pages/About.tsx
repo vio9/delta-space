@@ -5,7 +5,7 @@ import { Code, MessageCircle, Sparkles } from "lucide-react"
 function About() {
   return (
     <div className="bg-slate-200 ">
-    <section className="section m-2 pt-5 w-full lg:w-[70rem] lg:m-auto p-2">
+    <section className="section mx-2 pt-5 w-full lg:w-[70rem] lg:m-auto p-2">
       <Title text="Welcome to deltaSpace"></Title>
         <p className="m-1"><Sparkles size={25} className="inline bg-white p-1 rounded-md shadow-md" /> Welcome to this website dedicated to space news. Find information from NASA,
          Curiosity the European Space Agency, and more. The data comes from various public sources that you can find at the bottom of the page.</p>
