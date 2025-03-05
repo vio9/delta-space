@@ -60,7 +60,7 @@ const Webb = () => {
  }, [news, imagery])
 
  return (
-
+  <div className="bg-slate-200">
     <section className="section max-w-[90rem] p-2">
       <Title text="James Webb space telescope"/>
       { news && <RelatedNews news={news} isLoading={isLoading}/>}
@@ -69,6 +69,7 @@ const Webb = () => {
       <Title text="Recent images"/>
       { imagery && <CardsGrid objects={imagery} mode="imagery" />}
     </section>
+    </div>
 
   )
 }

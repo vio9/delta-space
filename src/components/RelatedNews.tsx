@@ -10,13 +10,15 @@ const RelatedNews = ({news, isLoading } : RelatedNewsProps ) => {
     const timer = setTimeout(() => setProgress(100), 1600)
     return () => clearTimeout(timer)
   }, [])
+  console.log(news)
   
   return (
     <div>
-        <h1 className="capitalize my-4 text-1xl">Related news</h1>
+        <h1 className="capitalize my-4 text-2xl">Related news</h1>
+        <p className="text-1xl mb-2">Click for the full article in its natural habitat</p>
         {
           !isLoading ? 
-          (  <div className="grid gap-2 auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-2">
+          (  <div className="grid gap-2 auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mt-4 pt-1">
             {
                 news.map(newItem => 
                    <NewsCard key={newItem.id} news={newItem}/>

@@ -71,7 +71,7 @@ function ApodPlayer({apod, day, setDay, isLoading} : ApodPlayerProps) {
             <div className="capitalize text-center text-1xl p-2 text-slate-500">{date}</div>
             <div className="mx-auto w-full my-8">
               <p className="capitalize text-2xl mb-2">{title}</p>
-              <p className="text-justify m-1 lg:text-left">{explanation}</p>
+              <p className="text-justify m-1 lg:text-left text-slate-800">{explanation}</p>
               <p className="capitalize mt-4 text-right">{copyright}</p>
               <p className="capitalize text-right">{date}</p>
             </div>

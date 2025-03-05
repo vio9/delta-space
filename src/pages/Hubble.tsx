@@ -29,6 +29,7 @@ const Hubble = () => {
   const { response, params } = data;
 
   return (
+    <div className="bg-slate-200">
    <section className="section">
     <Title text="Hubble telescope photos"/>
     <Filters term={params.term} mode="hubble" key={params.term}/>
@@ -38,6 +39,7 @@ const Hubble = () => {
     </CardsGrid>
     <PaginationContainer/>
    </section>
+   </div>
   )
 }
 

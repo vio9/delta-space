@@ -18,6 +18,7 @@ const FormInput = ({label, name, type, defaultValue, placeholder}: FormInputProp
             type={type} 
             defaultValue={defaultValue ? defaultValue : ""}
             placeholder={placeholder}
+            className="bg-white my-1"
         ></Input>
     </div>
   )

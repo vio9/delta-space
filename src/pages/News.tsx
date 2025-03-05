@@ -34,14 +34,15 @@ const { response, params } = data;
 
 
   return (
-    <section className="section">
-       <Title text="All news"/> 
-       <Filters term={params.term} mode="news" key={params.term}/>
-       <Overview objects={data}/>
-       <CardsGrid objects={response.results} mode="news-page" />
-       <PaginationContainer/>
-    </section>
-   
+    <div className="bg-blue-50">
+      <section className="section">
+        <Title text="All news"/> 
+        <Filters term={params.term} mode="news" key={params.term}/>
+        <Overview objects={data}/>
+        <CardsGrid objects={response.results} mode="news-page" />
+        <PaginationContainer/>
+      </section>
+    </div>
   )
 }
 
